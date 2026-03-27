@@ -7,15 +7,9 @@ namespace SearchService;
 
 public class AuctionDeletedConsumer : IConsumer<AuctionDeleted>
 {
-    private readonly IMapper _mapper;
-
-    public AuctionDeletedConsumer(IMapper mapper)
-    {
-        _mapper = mapper;
-    }
     public async Task Consume(ConsumeContext<AuctionDeleted> context)
     {
-        var res = await DB.DeleteAsync<Item>(i => i.ID == context.Message.Id);
+        var res = await DB.DeleteAsync<Item>(context.Message.Id);
 
         if(!res.IsAcknowledged)
         {
