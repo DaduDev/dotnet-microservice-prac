@@ -1,4 +1,4 @@
-# dotnet-microservice-prac
+# CarAuction
 
 ## 🚗 Car Auction Platform - Microservices Architecture
 
